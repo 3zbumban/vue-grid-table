@@ -1,12 +1,21 @@
 {
   "name": "vue-grid-table",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name vueGridTable ./src/components/VTable.vue",
     "lint": "vue-cli-service lint"
   },
+  "main": "./dist/vueGridTable.common.js",
+  "module": "dist/my-component.esm.js",
+  "unpkg": "dist/my-component.min.js",
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
   "dependencies": {
     "core-js": "^3.6.4",
     "vue": "^2.6.11"
