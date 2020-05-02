@@ -1,5 +1,5 @@
 <template>
-  <table v-if="data[0]" ref="table">
+  <table v-if="data[0]" ref="table" class="v-table">
     <thead>
       <tr>
         <th v-for="(t, i) in Object.keys(data[0])"

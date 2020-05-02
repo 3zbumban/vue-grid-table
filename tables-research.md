@@ -2,7 +2,7 @@
 
 ## concept
 
-* [concept adam lynch](https://adamlynch.com/flexible-data-tables-with-css-grid/)
+* **[concept adam lynch](https://adamlynch.com/flexible-data-tables-with-css-grid/)**
   * [simple version](https://codepen.io/adam-lynch/pen/XwKWdG)
   * [resizable version](https://codepen.io/adam-lynch/pen/GaqgXP)
 * [concept brain bell](https://www.brainbell.com/javascript/making-resizable-table-js.html)
@@ -10,6 +10,7 @@
 * https://htmldom.dev/resize-columns-of-a-table
 * https://github.com/tochoromero/vuejs-smart-table
 * https://github.com/dzwillia/vue-grid
+* [publish vuejs to NPM](https://medium.com/multinetinventiv/how-to-publish-a-vuejs-component-on-npm-fbc527c3ba0b)
 
 ## grid
 
