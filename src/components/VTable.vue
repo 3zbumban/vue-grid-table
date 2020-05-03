@@ -21,7 +21,7 @@
 <script>
 // 0: min value
 // eslint-disable-next-line no-unused-vars
-const min = 150;
+const min = 50;
 
 export default {
   name: "VTable",
@@ -29,13 +29,64 @@ export default {
   data () {
     return {
       // 1: save table element
-      table: this.$refs.table,
       columns: [],
       headerBeingResized: ""
     };
   },
+  methods: {
+    initResize ({ target }) {
+      console.log("init resize ", target.parentNode);
+      this.headerBeingResized = target.parentNode;
+      window.addEventListener("mousemove", this.onMouseMove);
+      window.addEventListener("mouseup", this.onMouseUp);
+      this.headerBeingResized.classList.add("header--being-resized");
+    },
+    onMouseMove (e) {
+      requestAnimationFrame(() => {
+        try {
+          // console.log("onMouseMove: ", e.clientX);
+          const horizontalScrollOffset = document.documentElement.scrollLeft;
+          // eslint-disable-next-line no-unused-vars
+          const width = (horizontalScrollOffset + e.clientX) - this.headerBeingResized.offsetLeft;
+
+          const column = this.columns.find(({ header }) => header === this.headerBeingResized);
+          column.size = Math.max(min, width) + "px";
+
+          this.columns.forEach((column) => {
+            if (column.size.startsWith("minmax")) {
+              column.size = parseInt(column.header.clientWidth, 10) + "px";
+            }
+          });
+          // todo: account for last one!
+          this.$refs.table.style.gridTemplateColumns = this.columns
+            .map(({ header, size }) => size)
+            .join(" ");
+        } catch (e) {
+          console.log(e);
+        }
+      });
+    },
+    onMouseUp (e) {
+      console.log("onMouseup: ", e);
+
+      window.removeEventListener("mousemove", this.onMouseMove);
+      window.removeEventListener("mouseup", this.onMouseUp);
+
+      this.headerBeingResized.classList.remove("header--being-resized");
+      this.headerBeingResized = null;
+    }
+  },
   mounted () {
-    console.log(this.$refs.th);
+    // eslint-disable-next-line no-unused-expressions
+    const max = "100fr";
+    this.$el.querySelectorAll("th").forEach((header) => {
+      this.columns.push({ header, size: `minmax(${min}px, ${max})` });
+      header
+        .querySelector(".resize-handle")
+        .addEventListener("mousedown", this.initResize);
+      console.log(header);
+    });
+    console.log(this.$el.querySelectorAll("th"));
   }
 };
 </script>
@@ -125,6 +176,10 @@ tr:nth-child(even) td {
 /* The following selector is needed so the handle is visible during resize even if the mouse isn't over the handle anymore */
 .header--being-resized .resize-handle {
   opacity: 0.5;
+}
+
+.header--being-resized {
+  background-color: yellow;
 }
 
 th:hover .resize-handle {
