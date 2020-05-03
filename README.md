@@ -1,5 +1,7 @@
 # vue-grid-table
 
+> SOON...
+
 ## Project setup
 ```
 yarn install
