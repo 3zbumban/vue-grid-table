@@ -11,6 +11,7 @@
 * https://github.com/tochoromero/vuejs-smart-table
 * https://github.com/dzwillia/vue-grid
 * [publish vuejs to NPM](https://medium.com/multinetinventiv/how-to-publish-a-vuejs-component-on-npm-fbc527c3ba0b)
+* https://vuejs.org/v2/guide/plugins.html
 
 ## grid
 
@@ -20,3 +21,8 @@
 * https://vuejs.org/v2/cookbook/packaging-sfc-for-npm.html
 * https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
 * https://vuejs.org/v2/guide/custom-directive.html
+
+## 🐞🐞🐞
+
+* https://github.com/vuejs/vue-cli/issues/5439
+  * https://github.com/webpack/webpack-dev-server/issues/2559

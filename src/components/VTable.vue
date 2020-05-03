@@ -5,7 +5,8 @@
         <th v-for="(t, i) in Object.keys(data[0])"
             :key="i"
             ref="th">
-            {{t}} <span class="resize-handle"></span>
+            {{t}}
+            <span class="resize-handle"></span>
         </th>
       </tr>
     </thead>
@@ -40,38 +41,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
+// ++++++++++++++++ gloabal ++++++++++++++++++
 * {
   box-sizing: border-box;
 }
-
 html,
 body {
   padding: 0;
   margin: 0;
 }
-
-// body {
-//   font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-// }
-
-// version 1 ++++++++++++++++++++++++++++++++++++++
-// table {
-//   display: grid;
-//   border-collapse: collapse;
-//   min-width: 100%;
-//   grid-template-columns:
-//     minmax(150px, 1fr)
-//     minmax(150px, 1.67fr)
-//     minmax(150px, 1.67fr)
-//     minmax(150px, 1.67fr)
-//     minmax(150px, 3.33fr)
-//     minmax(150px, 1.67fr)
-//     minmax(150px, 3.33fr)
-//     minmax(150px, 1.67fr);
-// }
-// ++++++++++++++++++++++++++++++++++++++++++++++
-
-// version 2 ++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++ version 2 ++++++++++++++
 table {
   min-width: 100vw;
   width: auto;
