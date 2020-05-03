@@ -19,9 +19,11 @@
 </template>
 
 <script>
-// 0: min value
+// 0: COLUMN_MIN value
 // eslint-disable-next-line no-unused-vars
-const min = 50;
+const COLUMN_MIN = 50;
+const HANDLE_WIDTH = "10px";
+const LAST_CELL_MAX = "auto";
 
 export default {
   name: "VTable",
@@ -50,17 +52,18 @@ export default {
           const width = (horizontalScrollOffset + e.clientX) - this.headerBeingResized.offsetLeft;
 
           const column = this.columns.find(({ header }) => header === this.headerBeingResized);
-          column.size = Math.max(min, width) + "px";
+          column.size = Math.max(COLUMN_MIN, width) + "px";
 
           this.columns.forEach((column) => {
             if (column.size.startsWith("minmax")) {
               column.size = parseInt(column.header.clientWidth, 10) + "px";
             }
           });
-          // todo: account for last one!
-          this.$refs.table.style.gridTemplateColumns = this.columns
-            .map(({ header, size }) => size)
-            .join(" ");
+          const newGrindTemplateColumns = this.columns
+            .map(({ header, size }, index) => size);
+          newGrindTemplateColumns[newGrindTemplateColumns.length - 1] =
+            `minmax(${newGrindTemplateColumns[newGrindTemplateColumns.length - 1]}, ${LAST_CELL_MAX})`;
+          this.$refs.table.style.gridTemplateColumns = newGrindTemplateColumns.join(" ");
         } catch (e) {
           console.log(e);
         }
@@ -80,10 +83,10 @@ export default {
     // eslint-disable-next-line no-unused-expressions
     const max = "100fr";
     this.$el.querySelectorAll("th").forEach((header) => {
-      this.columns.push({ header, size: `minmax(${min}px, ${max})` });
-      header
-        .querySelector(".resize-handle")
-        .addEventListener("mousedown", this.initResize);
+      this.columns.push({ header, size: `minmax(${COLUMN_MIN}px, ${max})` });
+      const handle = header.querySelector(".resize-handle");
+      handle.addEventListener("mousedown", this.initResize);
+      handle.style.width = HANDLE_WIDTH;
       console.log(header);
     });
     console.log(this.$el.querySelectorAll("th"));
@@ -143,10 +146,12 @@ th {
   font-weight: normal;
   font-size: 1.1rem;
   color: white;
+  user-select: none;
 }
 
 th:last-child {
   border: 0;
+  background-color: yellowgreen;
 }
 
 td {
