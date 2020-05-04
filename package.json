@@ -1,12 +1,20 @@
 {
   "name": "vue-grid-table",
   "version": "0.0.2",
+  "description": "A Vue.js Table Component with resizable columns and a sticky table head",
+  "author": {
+    "name": "3zbumban",
+    "email": "free4allcoding@gmail.com"
+  },
+  "repository": "https://github.com/3zbumban/vue-grid-table",
+  "bugs": "https://github.com/3zbumban/vue-grid-table/issues",
+  "keywords": ["vue", "vuejs", "css-grid", "table", "sticky-header", "resizable", "grid"],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name vueGridTable ./src/components/VTable.vue",
     "lint": "vue-cli-service lint"
   },
-  "main": "./dist/vueGridTable.common.js",
+  "main": "./dist/vueGridTable.umd.js",
   "module": "./dist/vueGridTable.esm.js",
   "unpkg": "./dist/vueGridTable.min.js",
   "browser": {
