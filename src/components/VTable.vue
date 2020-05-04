@@ -189,10 +189,4 @@ resize even if the mouse isn't over the handle anymore */
 th:hover .resize-handle {
   opacity: 0.3;
 }
-
-td {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  color: #808080;
-}
 </style>
