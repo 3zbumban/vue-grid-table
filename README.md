@@ -2,6 +2,9 @@
 
 > SOON...
 
+* https://github.com/3zbumban/vue-grid-table
+* https://www.npmjs.com/package/vue-grid-table
+
 ## Project setup
 ```
 yarn install

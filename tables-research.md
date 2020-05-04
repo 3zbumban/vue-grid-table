@@ -24,7 +24,6 @@
 
 ## publish to npm
 
-* [ddg search](https://vuejs.org/v2/cookbook/packaging-sfc-for-npm.html)
 * https://vuejs.org/v2/cookbook/packaging-sfc-for-npm.html
 * https://medium.com/multinetinventiv/how-to-publish-a-vuejs-component-on-npm-fbc527c3ba0b [Nov 4, 2019]
 * https://www.telerik.com/blogs/vuejs-how-to-build-your-first-package-publish-it-on-npm [March 4, 2019]
