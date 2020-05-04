@@ -1,6 +1,6 @@
 {
   "name": "vue-grid-table",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Vue.js Table Component with resizable columns and a sticky table head",
   "author": {
     "name": "3zbumban",
