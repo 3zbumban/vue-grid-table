@@ -11,14 +11,14 @@
   "keywords": ["vue", "vuejs", "css-grid", "table", "sticky-header", "resizable", "grid"],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name vueGridTable ./src/components/VTable.vue",
+    "build": "vue-cli-service build --target lib --name vue-grid-table ./src/components/VTable.vue",
     "lint": "vue-cli-service lint"
   },
-  "main": "./dist/vueGridTable.umd.js",
-  "module": "./dist/vueGridTable.esm.js",
-  "unpkg": "./dist/vueGridTable.min.js",
+  "main": "./dist/vue-grid-table.umd.js",
+  "module": "./dist/vue-grid-table.esm.js",
+  "unpkg": "./dist/vue-grid-table.min.js",
   "browser": {
-    "./sfc": "src/components/vueGridTable.vue"
+    "./sfc": "src/components/VTable.vue"
   },
   "files": [
     "dist/*",
